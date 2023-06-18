@@ -1,0 +1,138 @@
+<div class="row mt-4">
+    <div class="col-md-12">
+    
+    </div>
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+
+        <div class="card">
+            
+            <div class="card-body">
+                <form [formGroup]="formFeedback" (ngSubmit)="onSubmit()">
+                    <div class="form-group mt-3">
+                        <label for="feedbackType">Feedback Type:</label>
+                        
+                        <div class="mt-3">
+                          <div class="row">
+                            <div class="col-md-1">
+                                <input id="poor" type="radio" value="poor" name="feedbackType" formControlName="feedbackType" (change)="changeFeedbackType($event)">
+                            </div>
+                            <div class="col-md-7">
+                                Poor
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {{PPoor}} %
+                            </div>
+                          </div>
+                      
+                          <div class="progress mt-2">
+                            <div class="progress-bar bg-success" role="progressbar" [style.width.%]="PPoor"  aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                       </div>
+               
+                       <div class="mt-3">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <input id="fair" type="radio" value="fair" name="feedbackType" formControlName="feedbackType" (change)="changeFeedbackType($event)">
+
+                            </div>
+                            <div class="col-md-7">
+                                Fair
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {{PFair}} %
+                            </div>
+                          </div>
+
+                          <div class="progress mt-2">
+                            <div class="progress-bar bg-success" role="progressbar" [style.width.%]="PFair"  aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                       </div>
+
+                       <div class="mt-3">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <input id="good" type="radio" value="good" name="feedbackType" formControlName="feedbackType" (change)="changeFeedbackType($event)">
+
+                            </div>
+                            <div class="col-md-7">
+                                Good
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {{PGood}} %
+                            </div>
+                          </div>
+
+                        <div class="progress mt-2">
+                            <div class="progress-bar bg-success" role="progressbar" [style.width.%]="PGood"  aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                     </div>
+                     <div class="mt-3">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <input id="verygood" type="radio" value="verygood" name="feedbackType" formControlName="feedbackType" (change)="changeFeedbackType($event)">
+
+                            </div>
+                            <div class="col-md-7">
+                                Very Good
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {{PVeryGood}} %
+                            </div>
+                          </div>
+
+                          <div class="progress mt-2">
+                            <div class="progress-bar bg-success" role="progressbar" [style.width.%]="PVeryGood"  aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                       </div>
+                          
+                       <div class="mt-3">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <input id="excellent" type="radio" value="excellent" name="feedbackType" formControlName="feedbackType" (change)="changeFeedbackType($event)">
+
+                            </div>
+                            <div class="col-md-7">
+                                Excellent
+                            </div>
+                            <div class="col-md-4 text-right">
+                                {{PExcellent}} %
+                            </div>
+                          </div>
+
+                        <div class="progress mt-2">
+                            <div class="progress-bar bg-success" role="progressbar" [style.width.%]="PExcellent"  aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                     </div>
+                        
+                     <div *ngIf="submitted && formFeedback.controls.feedbackType.errors" class="text-danger">
+                        <div *ngIf="formFeedback.controls.feedbackType.errors['required']">Feedback mode is required</div>
+                      </div>
+                    </div>
+                    <div class="form-group mt-3">
+                    <textarea  placeholder="Enter your feedback" class="form-control" rows="6" formControlName="feedbackField" required></textarea>
+                </div>
+                
+
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-primary">
+                           Submit
+                        </button>
+                        
+                    </div>
+
+                    <div class="alert alert-s alert-success fade show  mt-3" *ngIf="isShowSAlert" role="alert">
+                    <strong>Success!</strong> your feedback details was saved successfully
+              
+                  </div>
+           
+            </form>
+
+         
+        </div>
+        </div>
+</div>
+<div class="col-md-4"></div>
+    
+</div>
